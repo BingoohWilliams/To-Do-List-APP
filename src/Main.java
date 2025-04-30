@@ -12,7 +12,7 @@ public class Main {
         tasks.add("Coding");
         tasks.add("Fighting");
         tasks.add("Loving");
-        tasks.add("Gaming")
+        tasks.add("Gaming");
 
         String option;
         int choice;
