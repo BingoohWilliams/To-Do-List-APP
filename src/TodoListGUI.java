@@ -12,7 +12,7 @@ public class TodoListGUI {
     private ArrayList<String> rawTasks; // To store tasks without numbers
 
     public TodoListGUI() {
-        JFrame frame = new JFrame("To-Do List");
+        JFrame frame = new JFrame("To-Do-List");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
         frame.setLayout(new BorderLayout());
@@ -52,7 +52,7 @@ public class TodoListGUI {
                 rawTasks.add(task);
                 updateTaskList();
                 taskField.setText("");
-                JOptionPane.showMessageDialog(frame, "✅ Task added successfully!");
+                JOptionPane.showMessageDialog(frame, "Task added successfully!");
             }
         });
 
@@ -62,18 +62,18 @@ public class TodoListGUI {
             if (selectedIndex != -1) {
                 rawTasks.remove(selectedIndex);
                 updateTaskList();
-                JOptionPane.showMessageDialog(frame, "✅ Task removed successfully!");
+                JOptionPane.showMessageDialog(frame, "Task removed successfully!");
             } else {
-                JOptionPane.showMessageDialog(frame, "⚠️ Please select a task to remove.");
+                JOptionPane.showMessageDialog(frame, "Please select a task to remove.");
             }
         });
 
         // Review Tasks
         reviewButton.addActionListener(e -> {
             if (rawTasks.isEmpty()) {
-                JOptionPane.showMessageDialog(frame, "📭 No tasks to show.");
+                JOptionPane.showMessageDialog(frame, "No tasks to show.");
             } else {
-                StringBuilder tasks = new StringBuilder("📋 Your Tasks:\n");
+                StringBuilder tasks = new StringBuilder(" Your Tasks:\n");
                 for (int i = 0; i < rawTasks.size(); i++) {
                     tasks.append((i + 1)).append(". ").append(rawTasks.get(i)).append("\n");
                 }
@@ -86,7 +86,7 @@ public class TodoListGUI {
             int confirm = JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit?", "Exit",
                     JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
-                JOptionPane.showMessageDialog(frame, "🙏 Thanks for using Bingooh! Stay productive, Gimbo 👑");
+                JOptionPane.showMessageDialog(frame, "Thanks for using our todo list App");
                 System.exit(0);
             }
         });
