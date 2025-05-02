@@ -111,7 +111,7 @@ public class ToDoListGUI {
         rawTasks.add("Coding");
         rawTasks.add("Fighting");
         rawTasks.add("Loving");
-        rawTasks.add("Gaming");
+       
        
         updateTaskList();
     }
