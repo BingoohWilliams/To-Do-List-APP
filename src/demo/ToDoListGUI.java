@@ -20,7 +20,7 @@ public class ToDoListGUI {
     private DefaultListModel<String> listModel;
     private JList<String> taskList;
     private JTextField taskField;
-    private ArrayList<String> rawTasks; // To store tasks without numbers
+    private ArrayList<String> rawTasks; 
 
     public ToDoListGUI() {
         JFrame frame = new JFrame("To-Do-List");
@@ -111,7 +111,7 @@ public class ToDoListGUI {
         rawTasks.add("Coding");
         rawTasks.add("Fighting");
         rawTasks.add("Loving");
-        rawTasks.add("Gaming");
+       
         updateTaskList();
     }
 
