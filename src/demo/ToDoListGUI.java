@@ -1,17 +1,28 @@
+package demo;
 
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
-public class TodoListGUI {
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+public class ToDoListGUI {
     private DefaultListModel<String> listModel;
     private JList<String> taskList;
     private JTextField taskField;
     private ArrayList<String> rawTasks; // To store tasks without numbers
 
-    public TodoListGUI() {
+    public ToDoListGUI() {
         JFrame frame = new JFrame("To-Do-List");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
@@ -113,6 +124,6 @@ public class TodoListGUI {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(TodoListGUI::new);
+        SwingUtilities.invokeLater(ToDoListGUI::new);
     }
 }
