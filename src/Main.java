@@ -13,6 +13,7 @@ public class Main {
         tasks.add("Fighting");
         tasks.add("Loving");
         tasks.add("Gaming");
+        tasks.add("Cooking");
       
 
         String option;
