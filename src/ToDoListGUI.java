@@ -1,5 +1,3 @@
-
-
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -27,11 +25,10 @@ public class ToDoListGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
         frame.setLayout(new BorderLayout());
+        frame.setResizable(false);
 
         listModel = new DefaultListModel<>();
         rawTasks = new ArrayList<>();
-
-        preloadTasks();
 
         taskList = new JList<>(listModel);
         JScrollPane scrollPane = new JScrollPane(taskList);
@@ -60,22 +57,30 @@ public class ToDoListGUI {
         addButton.addActionListener(e -> {
             String task = taskField.getText().trim();
             if (!task.isEmpty()) {
-                rawTasks.add(task);
-                updateTaskList();
-                taskField.setText("");
-                JOptionPane.showMessageDialog(frame, "Task added successfully!");
+                if (rawTasks.contains(task)) {
+                    JOptionPane.showMessageDialog(frame, "Task already exists!");
+                } else {
+                    rawTasks.add(task);
+                    updateTaskList();
+                    taskField.setText("");
+                    JOptionPane.showMessageDialog(frame, "Task added successfully!");
+                }
             }
         });
 
         // Remove Task
         removeButton.addActionListener(e -> {
-            int selectedIndex = taskList.getSelectedIndex();
-            if (selectedIndex != -1) {
-                rawTasks.remove(selectedIndex);
-                updateTaskList();
-                JOptionPane.showMessageDialog(frame, "Task removed successfully!");
+            if (rawTasks.isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "No tasks to remove.");
             } else {
-                JOptionPane.showMessageDialog(frame, "Please select a task to remove.");
+                int selectedIndex = taskList.getSelectedIndex();
+                if (selectedIndex != -1) {
+                    rawTasks.remove(selectedIndex);
+                    updateTaskList();
+                    JOptionPane.showMessageDialog(frame, "Task removed successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Please select a task to remove.");
+                }
             }
         });
 
@@ -103,17 +108,6 @@ public class ToDoListGUI {
         });
 
         frame.setVisible(true);
-    }
-
-    private void preloadTasks() {
-        rawTasks.add("Running");
-        rawTasks.add("Jumping");
-        rawTasks.add("Coding");
-        rawTasks.add("Fighting");
-        rawTasks.add("Loving");
-       
-       
-        updateTaskList();
     }
 
     // Rebuilds the visible list with numbering
