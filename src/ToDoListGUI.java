@@ -58,12 +58,12 @@ public class ToDoListGUI {
             String task = taskField.getText().trim();
             if (!task.isEmpty()) {
                 if (rawTasks.contains(task)) {
-                    JOptionPane.showMessageDialog(frame, "Task already exists!");
+                    JOptionPane.showMessageDialog(frame, "⚠️ Task already exists!");
                 } else {
                     rawTasks.add(task);
                     updateTaskList();
                     taskField.setText("");
-                    JOptionPane.showMessageDialog(frame, "Task added successfully!");
+                    JOptionPane.showMessageDialog(frame, "✅ Task added successfully!");
                 }
             }
         });
@@ -71,15 +71,15 @@ public class ToDoListGUI {
         // Remove Task
         removeButton.addActionListener(e -> {
             if (rawTasks.isEmpty()) {
-                JOptionPane.showMessageDialog(frame, "No tasks to remove.");
+                JOptionPane.showMessageDialog(frame, "🚫 No tasks to remove.");
             } else {
                 int selectedIndex = taskList.getSelectedIndex();
                 if (selectedIndex != -1) {
                     rawTasks.remove(selectedIndex);
                     updateTaskList();
-                    JOptionPane.showMessageDialog(frame, "Task removed successfully!");
+                    JOptionPane.showMessageDialog(frame, "🗑️ Task removed successfully!");
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Please select a task to remove.");
+                    JOptionPane.showMessageDialog(frame, "🔍 Please select a task to remove.");
                 }
             }
         });
@@ -87,9 +87,9 @@ public class ToDoListGUI {
         // Review Tasks
         reviewButton.addActionListener(e -> {
             if (rawTasks.isEmpty()) {
-                JOptionPane.showMessageDialog(frame, "No tasks to show.");
+                JOptionPane.showMessageDialog(frame, "📭 No tasks to show.");
             } else {
-                StringBuilder tasks = new StringBuilder(" Your Tasks:\n");
+                StringBuilder tasks = new StringBuilder("📋 Your Tasks:\n");
                 for (int i = 0; i < rawTasks.size(); i++) {
                     tasks.append((i + 1)).append(". ").append(rawTasks.get(i)).append("\n");
                 }
@@ -99,10 +99,10 @@ public class ToDoListGUI {
 
         // Exit
         exitButton.addActionListener(e -> {
-            int confirm = JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit?", "Exit",
+            int confirm = JOptionPane.showConfirmDialog(frame, "❓ Are you sure you want to exit?", "Exit",
                     JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
-                JOptionPane.showMessageDialog(frame, "Thanks for using our todo list App");
+                JOptionPane.showMessageDialog(frame, "🎉 Thanks for using our todo list App");
                 System.exit(0);
             }
         });
